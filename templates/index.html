@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+        <script src="/static/js/api.js"></script>
+    </head>
+    <body ng-app="api" ng-controller="ApiController as ctrl">
+        <h1>People</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="person in ctrl.people">
+                    <td>{{ person.id }}</td>
+                    <td><input type="text" ng-model="person.name" /></td>
+                    <td><input type="text" ng-model="person.age" /></td>
+                    <td><button ng-click="ctrl.savePerson(person)" ng-hide="ctrl.post">Save</button><img src="http://cdn.pelfusion.com/wp-content/uploads/2009/04/ajax-loader.gif" style="height:30px; width:50px" ng-show="ctrl.post" /></td>
+                    <td><button ng-click="ctrl.deletePerson(person)" ng-hide="ctrl.post">Delete</button><img src="http://cdn.pelfusion.com/wp-content/uploads/2009/04/ajax-loader.gif" style="height:30px; width:50px" ng-show="ctrl.post" /></td>
+                </tr>
+            </tbody>
+        </table>
+        <button ng-click="ctrl.createPerson()">Create Person</button>
+    </body>
+</html>
+                        
